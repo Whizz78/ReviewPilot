@@ -147,10 +147,10 @@ $("signupBtn").onclick=async()=>{
  const email=$("email").value.trim();
  const password=$("password").value;
 
- const {error}=await sb.auth.signUp({email,password});
+ const { data, error } = await sb.auth.signUp({ email, password });
 
- $("authmsg").textContent=error?
- error.message:"Compte créé. Vérifie ton e-mail si nécessaire.";
+$("authmsg").textContent=error?"Erreur inscription : "+error.message:"Compte créé. Vérifie ton e-mail si nécessaire.";
+
 };
 
 $("loginBtn").onclick=async()=>{
